@@ -3,36 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="An experimental concatenative, stack-based programming language where code and data share the same form.">
+  <title>Bo — think in stacks, code is data</title>
+  <meta name="description" content="Bo is a small, experimental stack-based language where programs are lists. Try it in your browser and watch every step.">
   <meta name="theme-color" content="#f6f7f9">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Bo — a little language with big ideas">
-  <meta property="og:description" content="Explore a concatenative, stack-based language where code and data share the same form.">
+  <meta property="og:site_name" content="Bo">
+  <meta property="og:title" content="Bo — think in stacks, code is data">
+  <meta property="og:description" content="A small, experimental stack-based language where programs are lists. Try it in your browser and watch every step.">
   <meta property="og:url" content="https://bo-lang.org/">
-  <meta property="og:image" content="https://bo-lang.org/assets/playground-plus-light.png">
+  <meta property="og:image" content="https://bo-lang.org/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bobo, the Bo mascot, next to the words: Think in stacks. Code is data.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://bo-lang.org/">
-  <link rel="icon" href="assets/mascot.png" type="image/png">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script>try{const t=localStorage.getItem("bo-site-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="stylesheet" href="style.css">
   <script src="theme.js" defer></script>
-  <title>Bo — a little language with big ideas</title>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="./" aria-label="Bo home"><img src="assets/mascot.png" alt="" width="34" height="46"><span>Bo<span class="brand-dot">.</span></span></a>
+      <a class="brand" href="./" aria-label="Bo home"><img src="assets/mascot.webp" alt="" width="31" height="46"><span>Bo<span class="brand-dot">.</span></span></a>
       <nav aria-label="Main navigation">
-        <a href="#ideas">The language</a>
-        <a href="https://github.com/BoLanguage/bo/blob/main/doc/README.md">Docs</a>
-        <a href="https://github.com/BoLanguage/bo">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="#ideas">Language</a>
+        <a href="#story">Story</a>
+        <a href="https://github.com/BoLanguage/bo/blob/main/doc/README.md">Docs <span class="ext" aria-hidden="true"></span></a>
+        <a href="https://github.com/BoLanguage/bo">GitHub <span class="ext" aria-hidden="true"></span></a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" type="button" aria-label="Switch color theme" hidden>
           <svg class="moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           <svg class="sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
-        <a class="button button-small button-dark" href="https://bolanguage.github.io/bo/">Try Bo <span aria-hidden="true">↗</span></a>
+        <a class="button button-small button-dark" href="https://bolanguage.github.io/bo/">Try the playground <span class="ext" aria-hidden="true"></span></a>
       </div>
     </div>
   </header>
@@ -40,111 +47,144 @@
   <main id="main">
     <section class="hero container">
       <div class="hero-copy">
-        <div class="eyebrow"><span class="status-dot"></span> A SMALL LANGUAGE EXPERIMENT</div>
-        <h1>Think in stacks.<br><span>Make a little</span><br>go a long way.</h1>
-        <p class="hero-lead">A concatenative, purely postfix language built around one simple idea. Code and data are the same thing.</p>
+        <p class="eyebrow"><span class="status-dot"></span>AN EXPERIMENTAL STACK LANGUAGE</p>
+        <h1>Think in stacks.<br><span>Code is data.</span></h1>
+        <p class="hero-lead">Bo is a small language where programs are just lists: you can build them, inspect them, and run them whenever you like. Try it in your browser and watch every step.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="https://bolanguage.github.io/bo/">Try the playground <span aria-hidden="true">↗</span></a>
-          <a class="button button-outline" href="https://github.com/BoLanguage/bo">Explore on GitHub <span aria-hidden="true">→</span></a>
+          <a class="button button-primary" href="https://bolanguage.github.io/bo/">Try the playground <span class="ext" aria-hidden="true"></span></a>
+          <a class="button button-outline" href="https://github.com/BoLanguage/bo">View on GitHub <span class="ext" aria-hidden="true"></span></a>
         </div>
-        <p class="hero-note">Open source · Experimental · Draft specification</p>
+        <p class="hero-note">Open source · MIT licensed · Draft specification</p>
       </div>
       <div class="hero-visual">
         <div class="code-window">
-          <div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>factorial.bo</span><span class="window-tag">BO</span></div>
-          <pre><code><span class="comment">; define factorial</span>
-<span class="string">"include/stack.bo"</span> require
-<span class="string">"include/io.bo"</span> require
+          <div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>factorial.bo</span></div>
+          <pre><code><span class="comment">; load the standard library</span>
+<span class="string">"include/std.bo"</span> require
 
+<span class="comment">; define factorial as the word !</span>
 (
-  (dup <span class="number">0</span> =)         <span class="comment">; if n == 0</span>
-  (drop <span class="number">1</span>)          <span class="comment">; then 1</span>
-  (dup <span class="number">1</span> - ! *)     <span class="comment">; else n * fact(n-1)</span>
+  (dup <span class="number">0</span> =)        <span class="comment">; if n = 0</span>
+  (drop <span class="number">1</span>)         <span class="comment">; then 1</span>
+  (dup <span class="number">1</span> - ! *)    <span class="comment">; else n * (n-1)!</span>
   ifte
 ) (!) <span class="keyword">PUSH</span>
 
-<span class="number">15</span> ! ps
-<span class="comment">; 0: 1307674368000</span></code></pre>
+<span class="number">15</span> ! ps            <span class="comment">; 0: 1307674368000</span></code></pre>
         </div>
-        <div class="mascot-badge"><img src="assets/mascot.png" alt="Bobo, Bo's blue-footed booby mascot" width="896" height="1200"><a href="https://github.com/BoLanguage/bo/blob/main/doc/mascot.md">Meet Bobo</a></div>
-        <div class="visual-caption"><span class="status-dot"></span> A LITTLE CODE, A LOT TO EXPLORE</div>
+        <a class="run-link" href="https://bolanguage.github.io/bo/#share=zTZDNigIxEIRfpSaniay7CboqDt49CuItl2gyGAid2STDIsu-u-0PYl2_ruqi_sQg1qJDTNahnj1KteRsdojhmG2-GDIi0CmOzn-V6j6PyQhk_zOG7JlRB-f7QB69PdWUg42w5Z70mzilMdQaAlo3DlDYSDzVIfQgbKAeOKcB-kUZcwRBv7waUzSYyAf0sXh2T9DSVMvmdhX6yoUk2kZid9hvb-X0N3uGgjd1UGvomVoulvPZYqUU_xcfIvAK4v8K"><span aria-hidden="true">▶</span> Step through it in the playground <span class="ext" aria-hidden="true"></span></a>
+        <div class="mascot-badge"><img src="assets/mascot.webp" alt="Bobo, Bo's blue-footed booby mascot" width="98" height="147"><a href="https://github.com/BoLanguage/bo/blob/main/doc/mascot.md">Meet Bobo <span class="ext" aria-hidden="true"></span></a></div>
       </div>
     </section>
 
-    <div class="ticker" aria-label="Bo language characteristics"><div class="container ticker-inner"><span>CONCATENATIVE</span><i></i><span>PURELY POSTFIX</span><i></i><span>HOMOICONIC</span><i></i><span>STACK-BASED</span></div></div>
+    <section class="glossary-band" aria-labelledby="glossary-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="glossary-title">Bo in plain words</h2>
+        <dl class="glossary">
+          <div><dt>Stack-based</dt><dd>Values wait on a stack until a word uses them.</dd></div>
+          <div><dt>Postfix</dt><dd>Operations come after their operands: <code>1 2 +</code>.</dd></div>
+          <div><dt>Concatenative</dt><dd>Write two programs side by side to compose them.</dd></div>
+          <div><dt>Homoiconic</dt><dd>Programs are lists, the same lists they work on.</dd></div>
+        </dl>
+      </div>
+    </section>
 
     <section class="section container" id="ideas">
       <div class="section-heading">
-        <div><p class="eyebrow">01 / THE IDEA</p><h2>A different way<br>to put things together<span class="accent">.</span></h2></div>
+        <div><p class="eyebrow">THE IDEA</p><h2>A different way<br>to put things together<span class="accent">.</span></h2></div>
         <p>Bo is an exercise in language minimalism: a small set of ideas that invites you to look at programming from another angle.</p>
       </div>
       <div class="idea-grid">
-        <article class="idea-card"><span class="card-icon">01</span><h3>Words flow left to right</h3><p>Values go on a stack. Words operate on them. Combine words by placing them next to each other.</p><code>1 2 + <span>→</span> 3</code></article>
-        <article class="idea-card"><span class="card-icon">02</span><h3>Code is data</h3><p>Lists can hold values or programs. Quote a piece of code, pass it around, and choose when to run it.</p><code>(1 2 +) apply</code></article>
-        <article class="idea-card"><span class="card-icon">03</span><h3>Stacks are the dictionary</h3><p>There is no separate dictionary: words name stacks, and definitions are values on those stacks.</p><code>(2 *) (double) PUSH</code></article>
+        <article class="idea-card"><span class="card-icon" aria-hidden="true">→</span><h3>Words flow left to right</h3><p>Values go on a stack. Words take their inputs from it and leave their results on it. Place words next to each other to combine them.</p><code>1 2 + <span>→ 3</span></code></article>
+        <article class="idea-card"><span class="card-icon" aria-hidden="true">( )</span><h3>Code is data</h3><p>A list can hold values or a program. Quote a piece of code, pass it around, and decide when to run it.</p><code>(1 2 +) apply <span>→ 3</span></code></article>
+        <article class="idea-card"><span class="card-icon" aria-hidden="true">≡</span><h3>Stacks are the dictionary</h3><p>There is no separate dictionary: every word names a stack, and its definition is the value on top.</p><code>(2 *) (double) PUSH<br>5 double <span>→ 10</span></code></article>
       </div>
-      <p class="section-footnote">Bo means <strong>B</strong>reeze <strong>o</strong>ptimized, a successor to the <a href="https://breeze-language.sourceforge.net/">Breeze language</a>. <a href="https://github.com/BoLanguage/bo/blob/main/doc/language.md">Explore the language <span aria-hidden="true">→</span></a></p>
+      <p class="section-footnote"><a href="https://github.com/BoLanguage/bo/blob/main/doc/language.md">Read the language guide <span class="ext" aria-hidden="true"></span></a></p>
     </section>
 
     <section class="play-section" id="playground">
       <div class="container play-layout">
         <div class="play-copy">
-          <p class="eyebrow">02 / GET YOUR HANDS ON IT</p>
+          <p class="eyebrow">TRY IT</p>
           <h2>See what the<br>stack is doing<span class="accent">.</span></h2>
-          <p>The browser playground makes Bo a little more tangible. Write a program, step through it, and watch the stacks change as you go.</p>
-          <a class="button button-primary" href="https://bolanguage.github.io/bo/">Open the playground <span aria-hidden="true">↗</span></a>
-          <p class="play-note">No install needed. Just bring your curiosity.</p>
+          <p>The playground runs Bo in your browser. Write a program, step through it word by word, and watch the stacks change. Ready-made examples and practice puzzles are one click away.</p>
+          <a class="button button-primary" href="https://bolanguage.github.io/bo/">Try the playground <span class="ext" aria-hidden="true"></span></a>
+          <p class="play-note">No install, no sign-up. Just bring your curiosity.</p>
         </div>
-        <div class="play-image">
-          <div class="image-label"><span class="status-dot"></span> A PEEK AT PLAYGROUND+</div>
-          <img src="assets/playground-plus-light.png" alt="Bo Playground+ showing a program editor, a puzzle and stack visualizer" loading="lazy">
-          <p>Playground+ is a separate local app for agent-generated puzzles, built on the browser playground. With a local Ollama model, puzzle generation and play stay on your computer; no puzzle or play data leaves it. <a href="https://github.com/BoLanguage/bo/blob/main/playground-plus/README.md">Learn more <span aria-hidden="true">→</span></a></p>
-        </div>
+        <figure class="play-image">
+          <img src="assets/playground.webp" alt="The Bo playground paused inside factorial: the editor on the left, the default stack holding 15 down to 8 and the running calls on the right" width="1440" height="900" loading="lazy">
+          <figcaption><span class="status-dot"></span>THE PLAYGROUND, PAUSED INSIDE FACTORIAL</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section container getting-started" id="start">
+    <section class="section container story" id="story">
       <div>
-        <p class="eyebrow">03 / GO A LITTLE DEEPER</p>
-        <h2>Curious? Start here<span class="accent">.</span></h2>
-        <p>Try Bo in your browser, or build the C runtime locally. Bo also has a Python reference implementation, a WebAssembly runtime, and editor support for VS Code and JupyterLab.</p>
-        <div class="text-links"><a href="https://github.com/BoLanguage/bo/blob/main/doc/tutorial.md">Read the tutorial <span aria-hidden="true">→</span></a><a href="https://github.com/BoLanguage/bo/blob/main/doc/README.md">Browse the docs <span aria-hidden="true">→</span></a><a href="https://github.com/BoLanguage/bo/blob/main/doc/primitives.md">Primitives <span aria-hidden="true">→</span></a><a href="https://github.com/BoLanguage/bo/blob/main/doc/library.md">Library <span aria-hidden="true">→</span></a></div>
+        <p class="eyebrow">THE STORY</p>
+        <h2>From Breeze<br>to Bo<span class="accent">.</span></h2>
       </div>
-      <div class="terminal-list">
-        <div class="terminal">
-          <div class="terminal-heading"><span>GET STARTED LOCALLY</span><button class="copy-button" type="button" aria-label="Copy Bo setup commands" title="Copy Bo setup commands" hidden><svg aria-hidden="true" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path></svg></button></div>
-          <pre><code>git clone https://github.com/BoLanguage/bo.git
-cd bo
-make all
-c/bo</code></pre>
-          <p>Requires a C compiler, Python 3, Git, Node.js 22.13+, npm and uv. The first build installs missing project dependencies and Emscripten; downloads can be large. At the Bo prompt, try <code>"include/std.bo" require 1 2 + ps</code>. Exit the REPL before running the commands below.</p>
-          <span class="copy-status" role="status" aria-live="polite"></span>
+      <div class="story-copy">
+        <p>Bo began as a revisit of <a href="https://breeze-language.sourceforge.net/">Breeze <span class="ext" aria-hidden="true"></span></a>, a stack-based language I designed in 2015. Breeze knew only numbers and lists of numbers, and a single operator, <code>#</code>, turned them into code.</p>
+        <p>Bo keeps that spirit (the name stands for <strong>B</strong>reeze <strong>o</strong>ptimized) and has grown a Python reference implementation, a C runtime, a WebAssembly playground, and editor support for VS Code and JupyterLab.</p>
+        <p class="story-sign">— Mauro DiNuzzo</p>
+        <a class="text-link" href="https://github.com/BoLanguage/bo/blob/main/examples/15-breeze-hash.bo">See Breeze's <code>#</code> rebuilt in Bo <span class="ext" aria-hidden="true"></span></a>
+      </div>
+    </section>
+
+    <section class="local-section" id="start">
+      <div class="container getting-started">
+        <div>
+          <p class="eyebrow">RUN IT LOCALLY</p>
+          <h2>Prefer your<br>own terminal<span class="accent">?</span></h2>
+          <p>Bo has a C runtime for the command line and a Python reference implementation, tested against each other. The tutorial takes you from your first stack to your first definition.</p>
+          <div class="text-links">
+            <a href="https://github.com/BoLanguage/bo/blob/main/doc/tutorial.md">Tutorial <span class="ext" aria-hidden="true"></span></a>
+            <a href="https://github.com/BoLanguage/bo/blob/main/doc/README.md">Docs <span class="ext" aria-hidden="true"></span></a>
+            <a href="https://github.com/BoLanguage/bo/blob/main/doc/primitives.md">Primitives <span class="ext" aria-hidden="true"></span></a>
+            <a href="https://github.com/BoLanguage/bo/blob/main/doc/library.md">Library <span class="ext" aria-hidden="true"></span></a>
+          </div>
         </div>
-        <div class="terminal">
-          <div class="terminal-heading"><span>RUN PLAYGROUND+ LOCALLY</span><button class="copy-button" type="button" aria-label="Copy Playground+ setup commands" title="Copy Playground+ setup commands" hidden><svg aria-hidden="true" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"></path></svg></button></div>
-          <pre><code>make playground-plus</code></pre>
-          <p>After <code>make all</code>, from the cloned <code>bo</code> directory. For local AI puzzles, install Ollama and a tool-capable model. <a href="https://github.com/BoLanguage/bo/blob/main/playground-plus/README.md">Setup details →</a></p>
-          <span class="copy-status" role="status" aria-live="polite"></span>
+        <div class="terminal-list">
+          <div class="terminal">
+            <div class="terminal-heading"><span>BUILD AND START THE REPL</span><button class="copy-button" type="button" aria-label="Copy the build commands" title="Copy the build commands" hidden><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button></div>
+            <pre><code>git clone https://github.com/BoLanguage/bo.git
+cd bo
+make -C c
+c/bo</code></pre>
+            <p>Needs Git and a C compiler. At the prompt, load the standard library with <code>"include/std.bo" require</code>, then try <code>1 2 + ps</code>. Press Ctrl-D to leave.</p>
+            <span class="copy-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="terminal">
+            <div class="terminal-heading"><span>OPTIONAL: PLAYGROUND+</span><button class="copy-button" type="button" aria-label="Copy the Playground+ commands" title="Copy the Playground+ commands" hidden><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button></div>
+            <pre><code>make all
+make playground-plus</code></pre>
+            <p>A separate local app in which an AI model writes new puzzles for you. With a local Ollama model, nothing leaves your computer. Needs Python 3, Node.js 22.13+, npm and uv; the first <code>make all</code> also downloads Emscripten, which is large. <a href="https://github.com/BoLanguage/bo/blob/main/playground-plus/README.md">Setup details <span class="ext" aria-hidden="true"></span></a></p>
+            <span class="copy-status" role="status" aria-live="polite"></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="end-banner"><div class="container end-inner"><div><p class="eyebrow">A LITTLE LANGUAGE WITH BIG IDEAS</p><h2>Ready to give Bo a go?</h2></div><a class="button button-primary" href="https://bolanguage.github.io/bo/">Try the playground <span aria-hidden="true">↗</span></a></div></section>
+    <section class="end-banner"><div class="container end-inner"><div><p class="eyebrow">NO INSTALL NEEDED</p><h2>Ready to give Bo a go?</h2></div><a class="button button-primary" href="https://bolanguage.github.io/bo/">Try the playground <span class="ext" aria-hidden="true"></span></a></div></section>
   </main>
 
   <footer class="site-footer"><div class="container footer-inner">
     <div><a class="footer-brand" href="./">Bo<span class="brand-dot">.</span></a><p>Built for curiosity, one stack at a time.</p></div>
-    <div class="footer-links">
-        <a href="https://github.com/BoLanguage/bo">GitHub</a><br>
-        <a href="https://github.com/BoLanguage/bo/blob/main/doc/README.md">Documentation</a><br>
-        <a href="https://bolanguage.github.io/bo/">Playground</a><br>
-        <a href="https://github.com/BoLanguage/bo/blob/main/doc/status.md">Status &amp; limitations</a>
+    <ul class="footer-links">
+      <li><a href="https://bolanguage.github.io/bo/">Playground</a></li>
+      <li><a href="https://github.com/BoLanguage/bo/blob/main/doc/README.md">Docs</a></li>
+      <li><a href="https://github.com/BoLanguage/bo">GitHub</a></li>
+      <li><a href="https://github.com/BoLanguage/bo/blob/main/doc/status.md">Status &amp; limitations</a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="https://github.com/BoLanguage/bo/blob/main/doc/mascot.md">Meet Bobo</a></li>
+      <li><a href="https://github.com/BoLanguage/bo#ai-assistance-disclosure">AI assistance disclosure</a></li>
+      <li><a href="https://github.com/BoLanguage/bo/blob/main/LICENSE">MIT license</a></li>
+    </ul>
+    <div class="footer-bottom">
+      <p>© 2026 Mauro DiNuzzo. Bo and this website are open source under the MIT license.</p>
+      <a href="https://github.com/BoLanguage/website">Website source <span class="ext" aria-hidden="true"></span></a>
     </div>
-    <p class="footer-note">
-        <a href="https://github.com/BoLanguage/bo/blob/main/doc/mascot.md">Meet Bobo, the blue-footed booby</a>.<br> 
-        <a href="https://github.com/BoLanguage/bo#ai-assistance-disclosure">AI assistance disclosure</a>.<br>
-        <br>Experimental, draft specification. <a href="https://github.com/BoLanguage/bo/blob/main/LICENSE">MIT licensed</a>.
-    </p>
   </div></footer>
 </body>
 </html>

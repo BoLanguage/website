@@ -7,15 +7,7 @@ function updateToggle(theme) {
   toggle.title = toggle.getAttribute("aria-label");
 }
 
-let savedTheme;
-try {
-  savedTheme = localStorage.getItem(storageKey);
-} catch (error) {
-  console.warn("Theme preference cannot be loaded:", error);
-}
-if (savedTheme === "light" || savedTheme === "dark") {
-  document.documentElement.dataset.theme = savedTheme;
-}
+// The saved theme is applied by an inline script in <head>, before the first paint.
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 updateToggle(document.documentElement.dataset.theme || (systemTheme.matches ? "dark" : "light"));
 toggle.hidden = false;

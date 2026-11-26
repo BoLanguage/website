@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bo-lang.org/sitemap.xml
