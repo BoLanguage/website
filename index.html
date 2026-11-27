@@ -62,7 +62,7 @@
           <pre><code><span class="comment">; load the standard library</span>
 <span class="string">"include/std.bo"</span> require
 
-<span class="comment">; define factorial as the word !</span>
+<span class="comment">; define factorial as the op !</span>
 (
   (dup <span class="number">0</span> =)        <span class="comment">; if n = 0</span>
   (drop <span class="number">1</span>)         <span class="comment">; then 1</span>
@@ -81,8 +81,8 @@
       <div class="container">
         <h2 class="visually-hidden" id="glossary-title">Bo in plain words</h2>
         <dl class="glossary">
-          <div><dt>Stack-based</dt><dd>Values wait on a stack until a word uses them.</dd></div>
-          <div><dt>Postfix</dt><dd>Operations come after their operands: <code>1 2 +</code>.</dd></div>
+          <div><dt>Stack-based</dt><dd>Values wait on a stack until an op uses them.</dd></div>
+          <div><dt>Postfix</dt><dd>Operations come after their operands.</dd></div>
           <div><dt>Concatenative</dt><dd>Write two programs side by side to compose them.</dd></div>
           <div><dt>Homoiconic</dt><dd>Programs are lists, the same lists they work on.</dd></div>
         </dl>
@@ -95,9 +95,9 @@
         <p>Bo is an exercise in language minimalism: a small set of ideas that invites you to look at programming from another angle.</p>
       </div>
       <div class="idea-grid">
-        <article class="idea-card"><span class="card-icon" aria-hidden="true">→</span><h3>Words flow left to right</h3><p>Values go on a stack. Words take their inputs from it and leave their results on it. Place words next to each other to combine them.</p><code>1 2 + <span>→ 3</span></code></article>
+        <article class="idea-card"><span class="card-icon" aria-hidden="true">→</span><h3>Ops flow left to right</h3><p>Values go on a stack. Ops take their inputs from it and leave their results on it. Place ops next to each other to combine them.</p><code>1 2 + <span>→ 3</span></code></article>
         <article class="idea-card"><span class="card-icon" aria-hidden="true">( )</span><h3>Code is data</h3><p>A list can hold values or a program. Quote a piece of code, pass it around, and decide when to run it.</p><code>(1 2 +) apply <span>→ 3</span></code></article>
-        <article class="idea-card"><span class="card-icon" aria-hidden="true">≡</span><h3>Stacks are the dictionary</h3><p>There is no separate dictionary: every word names a stack, and its definition is the value on top.</p><code>(2 *) (double) PUSH<br>5 double <span>→ 10</span></code></article>
+        <article class="idea-card"><span class="card-icon" aria-hidden="true">≡</span><h3>Stacks are the dictionary</h3><p>There is no separate dictionary: every op names a stack, and its definition is the value on top.</p><code>(2 *) (double) PUSH<br>5 double <span>→ 10</span></code></article>
       </div>
       <p class="section-footnote"><a href="https://github.com/BoLanguage/bo/blob/main/doc/language.md">Read the language guide <span class="ext" aria-hidden="true"></span></a></p>
     </section>
@@ -107,7 +107,7 @@
         <div class="play-copy">
           <p class="eyebrow">TRY IT</p>
           <h2>See what the<br>stack is doing<span class="accent">.</span></h2>
-          <p>The playground runs Bo in your browser. Write a program, step through it word by word, and watch the stacks change. Ready-made examples and practice puzzles are one click away.</p>
+          <p>The playground runs Bo in your browser. Write a program, step through it op by op, and watch the stacks change. Ready-made examples and practice puzzles are one click away.</p>
           <a class="button button-primary" href="https://bolanguage.github.io/bo/">Try the playground <span class="ext" aria-hidden="true"></span></a>
           <p class="play-note">No install, no sign-up. Just bring your curiosity.</p>
         </div>

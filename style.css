@@ -115,6 +115,8 @@ h1 { margin-bottom: 22px; font-size: clamp(62px, 6.4vw, 88px); line-height: .96;
 .window-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
 .window-dots i:first-child { background: var(--feet); }
 .code-window pre, .terminal pre { margin: 0; overflow-x: auto; font: 14px/1.8 "JetBrains Mono", monospace; }
+/* browsers give code its own monospace font, which would otherwise win over the one inherited from pre */
+.code-window pre code, .terminal pre code { font: inherit; }
 .code-window pre { padding: 29px 27px 32px; }
 .comment { color: var(--muted); }
 .string { color: #b3612a; }
